@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎈 祝靖雯小朋友六一儿童节快乐！🎈</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @keyframes float { 0%,100%{transform:translateY(0) rotate(0deg)} 33%{transform:translateY(-15px) rotate(3deg)} 66%{transform:translateY(-8px) rotate(-3deg)} }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-30px)} }
+  @keyframes rainbow { 0%{color:#ff6b6b} 17%{color:#feca57} 33%{color:#48dbfb} 50%{color:#ff9ff3} 67%{color:#54a0ff} 83%{color:#5f27cd} 100%{color:#ff6b6b} }
+  @keyframes pop { 0%{transform:scale(1)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+  @keyframes confettiFall { 0%{transform:translateY(-100px) rotate(0);opacity:1} 100%{transform:translateY(110vh) rotate(720deg);opacity:0} }
+  @keyframes wiggle { 0%,100%{transform:rotate(0)} 25%{transform:rotate(-5deg)} 75%{transform:rotate(5deg)} }
+  @keyframes slideIn { 0%{transform:translateX(-100%);opacity:0} 100%{transform:translateX(0);opacity:1} }
+  @keyframes sparkle { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.3;transform:scale(0.5)} }
+
+  body {
+    background: linear-gradient(180deg, #87CEEB 0%, #FFE4E1 30%, #FFFACD 60%, #E8F5E9 100%);
+    background-attachment: fixed;
+    font-family: "Microsoft YaHei","PingFang SC",sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'><text y='20'>🍭</text></svg>") 12 12, auto;
+  }
+
+  /* ── 气球 ── */
+  .balloon {
+    position: fixed;
+    bottom: -200px;
+    font-size: 60px;
+    animation: float 8s ease-in infinite;
+    z-index: 0; pointer-events: none;
+  }
+
+  /* ── 彩带 ── */
+  .streamer {
+    position: fixed; top: -10px;
+    width: 6px; height: 80px;
+    border-radius: 3px;
+    animation: confettiFall 5s linear infinite;
+    z-index: 0; pointer-events: none;
+  }
+
+  /* ── 主容器 ── */
+  .container {
+    position: relative; z-index: 1;
+    max-width: 700px; margin: 0 auto; padding: 20px;
+  }
+
+  /* ── hero ── */
+  .hero {
+    text-align: center; margin: 40px 0 30px;
+  }
+  .hero .date {
+    background: #ff6b6b; color: #fff;
+    display: inline-block; padding: 8px 25px;
+    border-radius: 50px; font-size: 18px; font-weight: bold;
+    animation: wiggle 2s ease infinite;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: 52px; font-weight: 900; line-height: 1.3;
+    animation: rainbow 4s linear infinite;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+    margin: 15px 0;
+  }
+  .hero .subtitle {
+    font-size: 20px; color: #555;
+  }
+  .hero .emoji-row {
+    font-size: 50px; animation: pop 1.5s ease infinite; margin: 15px 0;
+  }
+
+  /* ── 什么呀卡片 ── */
+  .catchphrase {
+    background: #fff; border-radius: 30px;
+    padding: 40px 30px; margin: 30px 0;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    border: 4px dashed #ff9ff3;
+    animation: slideIn 0.8s ease;
+  }
+  .catchphrase .label { color: #999; font-size: 16px; margin-bottom: 10px; }
+  .catchphrase .quote {
+    font-size: 72px; font-weight: 900;
+    background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: pop 2s ease infinite;
+    line-height: 1.2;
+  }
+  .catchphrase .pinyin { color: #aaa; font-size: 18px; margin-top: 5px; }
+
+  /* ── 证据卡片 ── */
+  .card {
+    background: #fff; border-radius: 20px;
+    padding: 25px; margin: 20px 0;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    transition: transform 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .card:hover { transform: translateY(-5px) rotate(1deg); }
+  .card .icon { font-size: 50px; margin-bottom: 10px; }
+  .card h3 { font-size: 22px; color: #333; margin: 10px 0; }
+  .card p { font-size: 16px; color: #666; line-height: 1.8; }
+  .card .tag {
+    position: absolute; top: 15px; right: 15px;
+    background: #ff6b6b; color: #fff;
+    padding: 4px 12px; border-radius: 20px;
+    font-size: 12px; font-weight: bold;
+  }
+
+  /* ── 倒计时/计时器 ── */
+  .timer {
+    background: linear-gradient(135deg, #ff9ff3, #feca57);
+    border-radius: 25px; padding: 25px; margin: 30px 0;
+    text-align: center; color: #fff;
+  }
+  .timer .big { font-size: 48px; font-weight: 900; }
+  .timer .small { font-size: 16px; opacity: 0.9; margin-top: 5px; }
+
+  /* ── 按钮 ── */
+  .btn {
+    display: block; width: 100%; padding: 18px;
+    margin: 12px 0; border: none; border-radius: 50px;
+    font-size: 22px; font-weight: bold; cursor: pointer;
+    transition: all 0.3s; text-align: center;
+    font-family: inherit;
+  }
+  .btn-red {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    color: #fff; box-shadow: 0 6px 20px rgba(255,107,107,0.4);
+  }
+  .btn-yellow {
+    background: linear-gradient(45deg, #feca57, #ff9f43);
+    color: #fff; box-shadow: 0 6px 20px rgba(254,202,87,0.4);
+  }
+  .btn:active { transform: scale(0.95); }
+
+  /* ── 弹窗 ── */
+  .modal-overlay {
+    display: none; position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7); z-index: 999;
+    justify-content: center; align-items: center;
+  }
+  .modal-overlay.show { display: flex; }
+  .modal-box {
+    background: #fff; border-radius: 30px;
+    padding: 40px 30px; text-align: center;
+    max-width: 450px; width: 90%;
+    animation: pop 0.4s ease;
+  }
+  .modal-box .big-emoji { font-size: 80px; }
+  .modal-box h2 { font-size: 32px; margin: 15px 0; color: #333; }
+  .modal-box p { color: #666; font-size: 16px; margin: 10px 0; }
+
+  /* ── 音乐播放器 ── */
+  .music-bar {
+    position: fixed; bottom: 20px; right: 20px;
+    background: #fff; border-radius: 50px;
+    padding: 12px 22px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+    z-index: 100; display: flex; align-items: center; gap: 10px;
+    cursor: pointer; font-size: 14px;
+    transition: transform 0.3s;
+  }
+  .music-bar:hover { transform: scale(1.05); }
+  .music-bar .note { font-size: 24px; animation: bounce 1s ease infinite; }
+
+  /* ── 彩蛋星星 ── */
+  .star {
+    position: fixed; pointer-events: none;
+    animation: sparkle 1.5s ease infinite;
+    z-index: 0; font-size: 24px;
+  }
+
+  /* ── 底部 ── */
+  .footer {
+    text-align: center; padding: 40px 20px;
+    color: #aaa; font-size: 14px;
+  }
+</style>
+</head>
+<body>
+
+<!-- 音乐 -->
+<div class="music-bar" id="musicBtn" onclick="toggleMusic()">
+  <span class="note">🎵</span>
+  <span id="musicText">点我放歌~</span>
+</div>
+
+<!-- 气球 -->
+<script>
+  const balloonEmojis = ['🎈','🎈','🎈','🎈','🎈','🎊','🎉','🍬','🍭','🎀','🌟','🧸','🎪','🎠','🍦','🌈'];
+  for (let i = 0; i < 20; i++) {
+    const b = document.createElement('div');
+    b.className = 'balloon';
+    b.textContent = balloonEmojis[i % balloonEmojis.length];
+    b.style.left = (Math.random() * 95) + '%';
+    b.style.animationDuration = (6 + Math.random() * 10) + 's';
+    b.style.animationDelay = (Math.random() * 8) + 's';
+    b.style.fontSize = (30 + Math.random() * 50) + 'px';
+    document.body.appendChild(b);
+  }
+  // 小星星
+  for (let i = 0; i < 30; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    s.textContent = '✨';
+    s.style.left = (Math.random() * 95) + '%';
+    s.style.top = (Math.random() * 90) + '%';
+    s.style.animationDelay = (Math.random() * 1.5) + 's';
+    s.style.fontSize = (12 + Math.random() * 24) + 'px';
+    document.body.appendChild(s);
+  }
+</script>
+
+<div class="container">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="date">📅 2024年6月1日 · 儿童节 📅</div>
+
+    <h1>㊗️ 靖雯小朋友<br>六一快乐！🎈</h1>
+    <div class="emoji-row">🧒🎂🎁🎠🎪🍭</div>
+
+    <p class="subtitle">虽然你已经高中毕业了<br>但在我们心里你永远是那个<br>爱说"什么呀"的小朋友 🥳</p>
+  </div>
+
+  <!-- 什么呀 -->
+  <div class="catchphrase">
+    <div class="label">⬇️ 靖雯经典语录 ⬇️</div>
+    <div class="quote">什么呀</div>
+    <div class="pinyin">shén · me · ya</div>
+    <p style="color:#999;margin-top:10px;font-size:14px;">据统计，这三个字在她高中三年的使用频率约为<br><b style="color:#ff6b6b;font-size:24px;">每天 47 次</b></p>
+  </div>
+
+  <!-- 证据区 -->
+  <h2 style="text-align:center;font-size:32px;margin:30px 0 15px;color:#333;">📋 为什么靖雯值得过六一</h2>
+
+  <div class="card">
+    <div class="tag">证据一</div>
+    <div class="icon">😴</div>
+    <h3>永远需要被叫醒的人</h3>
+    <p>据同班同学回忆，靖雯在课间十分钟能进入深度睡眠，并在上课铃响后持续昏迷长达五分钟。被同桌拍醒后第一句话永远是——<b style="color:#ff6b6b;">"什么呀"</b>。这种婴儿般的睡眠质量，不过六一谁过？</p>
+  </div>
+
+  <div class="card">
+    <div class="tag">证据二</div>
+    <div class="icon">🍜</div>
+    <h3>食堂首席品鉴官</h3>
+    <p>每次下课第一个冲向食堂，对学校周边所有小吃摊了如指掌。室友表示："跟着靖雯吃饭从没踩过雷。"具备如此纯粹的干饭精神，说明她内心永远住着一个快乐的小朋友。</p>
+  </div>
+
+  <div class="card">
+    <div class="tag">证据三</div>
+    <div class="icon">📱</div>
+    <h3>表情包库存大户</h3>
+    <p>据不完全统计，靖雯手机里存有 3000+ 张表情包，其中70%为猫猫狗狗，20%为熊猫头，10%为"什么呀"系列自制表情。此等收藏量在成年人中极为罕见，系儿童心智的铁证。</p>
+  </div>
+
+  <div class="card">
+    <div class="tag">证据四</div>
+    <div class="icon">🎀</div>
+    <h3>对可爱事物毫无抵抗力</h3>
+    <p>凡是路过文具店必进去逛一圈，看到可爱贴纸/小本子/毛绒玩具就走不动路。每次都说"我就看看"，最后总是抱一堆出来。这种纯粹的快乐感，是小朋友才有的超能力。</p>
+  </div>
+
+  <!-- 倒计时 -->
+  <div class="timer">
+    <div class="small">⏰ 距离下一个六一儿童节还有</div>
+    <div class="big" id="countdown">-- 天</div>
+    <div class="small">别急 今年先好好过！</div>
+  </div>
+
+  <!-- 按钮 -->
+  <button class="btn btn-red" onclick="celebrate()">🎉 点击为靖雯庆祝 🎉</button>
+  <button class="btn btn-yellow" onclick="confess()">📢 我有话对靖雯说</button>
+
+  <!-- 留言区 -->
+  <div style="background:#fff;border-radius:20px;padding:25px;margin:30px 0;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,0.06);">
+    <h3 style="margin-bottom:15px;color:#333;">💬 好友留言板</h3>
+    <p style="color:#999;font-size:14px;margin-bottom:10px;">（以下留言来自靖雯的小伙伴们）</p>
+    <div style="text-align:left;padding:10px;color:#666;font-size:15px;line-height:2;">
+      <p>🧑‍🎓 <b>前桌同学：</b>"'什么呀'这三个字已经刻进我的DNA了，每次听到别人说都会想到你。"</p>
+      <p>👩‍🎓 <b>同桌：</b>"上课睡觉被老师点名，你迷迷糊糊站起来说了句'什么呀'，全班爆笑，老师都气笑了。"</p>
+      <p>🧑‍🎓 <b>后桌同学：</b>"六一快乐靖雯！希望你永远保持那份'什么呀'式的天真~"</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    🎈 本网站由靖雯的高中同学们倾情制作<br>
+    纯属娱乐 · 满满都是爱 · 六一儿童节快乐<br>
+    靖雯，不管你长多大，在我们这儿你永远是小朋友 ✨
+  </div>
+</div>
+
+<!-- 弹窗 -->
+<div class="modal-overlay" id="modal">
+  <div class="modal-box">
+    <div class="big-emoji" id="modalEmoji">🎉</div>
+    <h2 id="modalTitle">庆祝成功！</h2>
+    <p id="modalText">靖雯又收到了一个儿童节祝福！</p>
+    <button class="btn btn-red" onclick="closeModal()" style="font-size:16px;padding:12px 30px;">好的！继续逛</button>
+  </div>
+</div>
+
+<!-- 稳稳的幸福 iframe -->
+<iframe id="musicFrame" style="display:none;" allow="autoplay"></iframe>
+
+<script>
+  // ── 倒计时 ──
+  function updateCountdown() {
+    const now = new Date();
+    const next = new Date(now.getFullYear() + (now.getMonth() > 5 || (now.getMonth() === 5 && now.getDate() > 1) ? 1 : 0), 5, 1);
+    const diff = Math.ceil((next - now) / 86400000);
+    document.getElementById('countdown').textContent = diff + ' 天';
+  }
+  updateCountdown();
+
+  // ── 音乐 ──
+  let musicPlaying = false;
+  // 使用网易云外链
+  const musicUrl = 'https://music.163.com/song/media/outer/url?id=25706282.mp3';
+  let audio = null;
+
+  function initAudio() {
+    if (!audio) {
+      audio = new Audio(musicUrl);
+      audio.loop = true;
+      audio.volume = 0.5;
+    }
+  }
+
+  function toggleMusic() {
+    initAudio();
+    if (musicPlaying) {
+      audio.pause();
+      document.getElementById('musicText').textContent = '已暂停 ▶';
+      musicPlaying = false;
+    } else {
+      audio.play().catch(() => {
+        // 如果自动播放被拦，显示提示
+        document.getElementById('musicText').textContent = '点我放歌~ 🎵';
+      });
+      document.getElementById('musicText').textContent = '🎵 稳稳的幸福 - 陈奕迅';
+      musicPlaying = true;
+    }
+  }
+
+  // ── 庆祝按钮 ──
+  function celebrate() {
+    const emojis = ['🎉','🎊','🎈','🍬','🍭','🎂','🧸','💖','🌟','✨','🎀','🍦','🎠','🎪','🎁'];
+    for (let i = 0; i < 40; i++) {
+      setTimeout(() => {
+        const p = document.createElement('div');
+        p.style.cssText = `
+          position:fixed;pointer-events:none;z-index:9999;
+          font-size:${20+Math.random()*40}px;
+          left:${Math.random()*95}%;
+          top:-50px;
+          animation:confettiFall ${2+Math.random()*3}s ease-in forwards;
+        `;
+        p.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 4000);
+      }, i * 50);
+    }
+    document.getElementById('modalEmoji').textContent = '🎉';
+    document.getElementById('modalTitle').textContent = '庆祝成功！';
+    document.getElementById('modalText').textContent = '靖雯小朋友又收获了一份六一快乐！\n愿你永远被这个世界温柔以待~';
+    document.getElementById('modal').classList.add('show');
+    if (!musicPlaying) toggleMusic();
+  }
+
+  function confess() {
+    document.getElementById('modalEmoji').textContent = '💌';
+    document.getElementById('modalTitle').textContent = '致靖雯';
+    document.getElementById('modalText').textContent = '靖雯啊，虽然你总说"什么呀"，但我们都知道你什么都懂。高中三年因为有你，每天都多了一点笑声。六一快乐，永远的靖雯小朋友！——你的高中同学们 ❤️';
+    document.getElementById('modal').classList.add('show');
+  }
+
+  function closeModal() {
+    document.getElementById('modal').classList.remove('show');
+  }
+</script>
+
+</body>
+</html>
