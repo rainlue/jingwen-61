@@ -98,12 +98,12 @@
     <h1>㊗️ 靖雯小朋友<br>六一快乐！🎈</h1>
     <div class="emoji-row">🧒🎂🎁🎠🎪🍭</div>
     <!-- 音乐播放器 -->
-    <div style="max-width:330px;margin:15px auto;background:#fff;border-radius:14px;padding:10px 14px;box-shadow:0 4px 15px rgba(0,0,0,0.08);display:flex;align-items:center;gap:10px;">
-      <span style="font-size:28px;">🎵</span>
-      <span style="font-size:14px;color:#888;flex:1;">王佳钰 - 六一儿童节</span>
-      <button onclick="playMusic()" id="playBtn" style="background:#ff6b6b;color:#fff;border:none;border-radius:20px;padding:8px 20px;font-size:14px;font-weight:bold;cursor:pointer;font-family:inherit;">▶ 播放</button>
+    <div style="max-width:330px;margin:15px auto;background:#fff;border-radius:14px;padding:8px 10px;box-shadow:0 4px 15px rgba(0,0,0,0.08);">
+      <span style="font-size:13px;color:#999;display:block;margin-bottom:4px;">🎵 王佳钰 - 六一儿童节</span>
+      <audio controls loop style="width:100%;height:32px;">
+        <source src="music.mp3" type="audio/mpeg">
+      </audio>
     </div>
-    <audio id="bgm" loop style="display:none;"></audio>
     <p class="subtitle">虽然你已经高中毕业了<br>但在我们心里你永远是那个<br>爱说"什么呀"的小朋友 🥳</p>
   </div>
 
@@ -225,29 +225,6 @@
   }
 
   function closeModal() { document.getElementById('modal').classList.remove('show'); }
-
-  // 音乐播放
-  let audioReady = false;
-  const audio = document.getElementById('bgm');
-  audio.src = 'music.mp3';
-  audio.load();
-
-  function playMusic() {
-    const btn = document.getElementById('playBtn');
-    if (audio.paused) {
-      audio.play().then(() => {
-        btn.textContent = '⏸ 暂停';
-        btn.style.background = '#999';
-      }).catch(() => {
-        btn.textContent = '❌ 播放失败，请重试';
-        btn.style.background = '#ff6b6b';
-      });
-    } else {
-      audio.pause();
-      btn.textContent = '▶ 播放';
-      btn.style.background = '#ff6b6b';
-    }
-  }
 </script>
 </body>
 </html>
