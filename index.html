@@ -94,15 +94,16 @@
 
   <!-- Hero -->
   <div class="hero">
-    <div class="date">📅 2024年6月1日 · 儿童节 📅</div>
+    <div class="date">📅 2026年6月1日 · 儿童节 📅</div>
     <h1>㊗️ 靖雯小朋友<br>六一快乐！🎈</h1>
     <div class="emoji-row">🧒🎂🎁🎠🎪🍭</div>
     <!-- 音乐播放器 -->
-    <div style="max-width:330px;margin:15px auto;background:#fff;border-radius:14px;padding:6px 8px;box-shadow:0 4px 15px rgba(0,0,0,0.08);">
-      <iframe style="display:block;width:100%;height:66px;border:none;border-radius:8px;"
-        src="https://music.163.com/outchain/player?type=2&id=25706282&auto=0&height=32"
-        allow="autoplay"></iframe>
+    <div style="max-width:330px;margin:15px auto;background:#fff;border-radius:14px;padding:10px 14px;box-shadow:0 4px 15px rgba(0,0,0,0.08);display:flex;align-items:center;gap:10px;">
+      <span style="font-size:28px;">🎵</span>
+      <span style="font-size:14px;color:#888;flex:1;">稳稳的幸福 - 陈奕迅</span>
+      <button onclick="playMusic()" id="playBtn" style="background:#ff6b6b;color:#fff;border:none;border-radius:20px;padding:8px 20px;font-size:14px;font-weight:bold;cursor:pointer;font-family:inherit;">▶ 播放</button>
     </div>
+    <audio id="bgm" loop style="display:none;"></audio>
     <p class="subtitle">虽然你已经高中毕业了<br>但在我们心里你永远是那个<br>爱说"什么呀"的小朋友 🥳</p>
   </div>
 
@@ -224,6 +225,29 @@
   }
 
   function closeModal() { document.getElementById('modal').classList.remove('show'); }
+
+  // 音乐播放
+  let audioReady = false;
+  const audio = document.getElementById('bgm');
+  audio.src = 'https://music.163.com/song/media/outer/url?id=25706282.mp3';
+  audio.load();
+
+  function playMusic() {
+    const btn = document.getElementById('playBtn');
+    if (audio.paused) {
+      audio.play().then(() => {
+        btn.textContent = '⏸ 暂停';
+        btn.style.background = '#999';
+      }).catch(() => {
+        btn.textContent = '❌ 播放失败，请重试';
+        btn.style.background = '#ff6b6b';
+      });
+    } else {
+      audio.pause();
+      btn.textContent = '▶ 播放';
+      btn.style.background = '#ff6b6b';
+    }
+  }
 </script>
 </body>
 </html>
