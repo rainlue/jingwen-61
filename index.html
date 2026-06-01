@@ -72,6 +72,26 @@
     font-size: 50px; animation: pop 1.5s ease infinite; margin: 15px 0;
   }
 
+  /* ── 照片墙 ── */
+  .photo-gallery {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    margin: 25px 0; max-width: 500px; margin-left: auto; margin-right: auto;
+  }
+  .photo-gallery .photo {
+    border-radius: 16px; overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    aspect-ratio: 1;
+    background: #f0f0f0;
+  }
+  .photo-gallery .photo:hover {
+    transform: scale(1.05) rotate(-2deg);
+    box-shadow: 0 10px 30px rgba(255,107,107,0.3);
+  }
+  .photo-gallery .photo img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+
   /* ── 什么呀卡片 ── */
   .catchphrase {
     background: #fff; border-radius: 30px;
@@ -227,6 +247,14 @@
     <div class="emoji-row">🧒🎂🎁🎠🎪🍭</div>
 
     <p class="subtitle">虽然你已经高中毕业了<br>但在我们心里你永远是那个<br>爱说"什么呀"的小朋友 🥳</p>
+  </div>
+
+  <!-- 照片墙 -->
+  <div class="photo-gallery">
+    <div class="photo"><img src="微信图片_20260601105437_20_2.jpg" alt="靖雯"></div>
+    <div class="photo"><img src="微信图片_20260601105438_21_2.jpg" alt="靖雯"></div>
+    <div class="photo"><img src="微信图片_20260601105438_22_2.jpg" alt="靖雯"></div>
+    <div class="photo"><img src="微信图片_20260601105439_23_2.jpg" alt="靖雯"></div>
   </div>
 
   <!-- 什么呀 -->
