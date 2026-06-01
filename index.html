@@ -72,7 +72,7 @@
 <!-- 气球和星星 -->
 <script>
   const emojis = ['🎈','🎈','🎈','🎈','🎊','🎉','🍬','🍭','🎀','🌟','🧸','🎪','🎠','🍦','🌈'];
-  for (let i = 0; i < 22; i++) {
+  for (let i = 0; i < 8; i++) {
     const b = document.createElement('div'); b.className = 'balloon';
     b.textContent = emojis[i % emojis.length];
     b.style.left = (Math.random() * 95) + '%';
@@ -81,7 +81,7 @@
     b.style.fontSize = (30 + Math.random() * 50) + 'px';
     document.body.appendChild(b);
   }
-  for (let i = 0; i < 35; i++) {
+  for (let i = 0; i < 12; i++) {
     const s = document.createElement('div'); s.className = 'star'; s.textContent = '✨';
     s.style.left = (Math.random() * 95) + '%'; s.style.top = (Math.random() * 90) + '%';
     s.style.animationDelay = (Math.random() * 1.5) + 's';
